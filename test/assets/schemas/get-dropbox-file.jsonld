@@ -41,13 +41,11 @@
     },
     "integration": { "@id": "sklproperties:integration", "@type": "@id" },
     "verb": { "@id": "sklproperties:verb", "@type": "@id" },
-    "rml:referenceFormulation": {
-      "@id": "rml:referenceFormulation",
-      "@type": "@id"
-    },
-    "rr:parentTriplesMap": { "@id": "rr:parentTriplesMap", "@type": "@id" },
-    "rr:predicate": { "@id": "rr:predicate", "@type": "@id" },
-    "rr:object": { "@id": "rr:object", "@type": "@id" }
+    "rml:referenceFormulation": { "@type": "@id" },
+    "rr:parentTriplesMap": { "@type": "@id" },
+    "rr:predicate": { "@type": "@id" },
+    "rr:object": { "@type": "@id" },
+    "rr:termType": { "@type": "@id" }
   },
   "@graph": [
     {
@@ -121,7 +119,7 @@
       ],
       "rr:subjectMap": {
         "@type": "rr:SubjectMap",
-        "rr:constant": "https://skl.standard.storage/data/4/operationMappings/1/subject"
+        "rr:template": "https://skl.standard.storage/data/4/operationMappings/1/subject"
       }
     },
     {
@@ -172,7 +170,7 @@
                   "@type": "rr:PredicateObjectMap",
                   "rr:objectMap": {
                     "@type": "rr:ObjectMap",
-                    "rr:constant": ""
+                    "rr:constant": ","
                   },
                   "rr:predicate": "http://users.ugent.be/~bjdmeest/function/grel.ttl#p_string_sep"
                 }
@@ -183,7 +181,7 @@
       ],
       "rr:subjectMap": {
         "@type": "rr:SubjectMap",
-        "rr:constant": "https://skl.standard.storage/data/4/parameterMappings/1/subject"
+        "rr:template": "https://skl.standard.storage/data/4/parameterMappings/1/subject"
       }
     },
     {
@@ -295,7 +293,11 @@
         },
         {
           "@type": "rr:PredicateObjectMap",
-          "rr:object": "https://skl.standard.storage/integrations/Dropbox",
+          "rr:objectMap": {
+            "@type": "rr:ObjectMap",
+            "rr:termType": "rr:IRI",
+            "rr:constant": "https://skl.standard.storage/integrations/Dropbox"
+          },
           "rr:predicate": "sklproperties:integration"
         },
         {
@@ -396,7 +398,10 @@
               "rr:predicateObjectMap": [
                 {
                   "@type": "rr:PredicateObjectMap",
-                  "rr:object": "https://skl.standard.storage/nouns/File",
+                  "rr:objectMap": {
+                    "@type": "rr:ObjectMap",
+                    "rr:constant": "https://skl.standard.storage/nouns/File"
+                  },
                   "rr:predicate": "http://users.ugent.be/~bjdmeest/function/grel.ttl#any_false"
                 },
                 {
@@ -439,7 +444,10 @@
                 },
                 {
                   "@type": "rr:PredicateObjectMap",
-                  "rr:object": "https://skl.standard.storage/nouns/Folder",
+                  "rr:objectMap": {
+                    "@type": "rr:ObjectMap",
+                    "rr:constant": "https://skl.standard.storage/nouns/Folder"
+                  },
                   "rr:predicate": "http://users.ugent.be/~bjdmeest/function/grel.ttl#any_true"
                 }
               ]
@@ -530,7 +538,7 @@
       ],
       "rr:subjectMap": {
         "@type": "rr:SubjectMap",
-        "rr:constant": "https://skl.standard.storage/data/abc123"
+        "rr:template": "https://skl.standard.storage/data/abc123"
       }
     },
     {

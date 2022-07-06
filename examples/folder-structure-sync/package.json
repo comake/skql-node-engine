@@ -1,5 +1,5 @@
 {
-	"name": "skql-js-engine-folder-structure-sync",
+	"name": "skql-node-engine-folder-structure-sync",
 	"version": "0.0.0",
 	"scripts": {
 		"build": "tsc",
@@ -9,7 +9,9 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"dependencies": {
-		"@comake/skql-js-engine": "^0.0.1",
+		"@comake/skql-node-engine": "^0.0.0",
+		"fs": "^0.0.1-security",
+		"jsonld": "^6.0.0",
 		"ts-node": "^10.8.1"
 	},
 	"devDependencies": {

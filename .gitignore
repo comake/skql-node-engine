@@ -5,5 +5,5 @@ dist
 node_modules/
 coverage/
 yarn-error.log*
-rmlmapper-5.0.0-r362-all.jar
+rmlmapper-*.jar
 tmp

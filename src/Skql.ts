@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { promises as fsPromises } from 'fs';
+import type { NodeObject } from 'jsonld';
 import SHACLValidator from 'rdf-validate-shacl';
 import { Mapper } from './Mapper';
 import { OpenApiOperationExecutor } from './openapi/OpenApiOperationExecutor';
@@ -7,7 +8,7 @@ import type { OpenApi } from './openapi/OpenApiSchemaConfiguration';
 import { constructUri, convertJsonLdToQuads, toJSON } from './util/Util';
 import { SKL, SHACL } from './util/Vocabularies';
 
-export type VerbHandler = (args: any) => any;
+export type VerbHandler = (args: any) => Promise<NodeObject>;
 
 export interface SetSchemaArgs {
   schema?: Record<string, any>[];
@@ -47,14 +48,14 @@ export class SKQLBase {
       const verb = this.getSchemaById(verbSchemaId);
       return this.constructVerbHandler(verb);
     } catch {
-      return async(): Promise<void> => {
+      return async(): Promise<NodeObject> => {
         throw new Error(`Failed to find the verb ${verbName} in the schema.`);
       };
     }
   }
 
   private constructVerbHandler(verb: any): VerbHandler {
-    return async(args: any): Promise<any> => {
+    return async(args: any): Promise<NodeObject> => {
       // Assert params match
       const argsAsJsonLd = {
         '@context': verb[SKL.parametersContext]['@value'],

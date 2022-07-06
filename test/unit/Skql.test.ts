@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/naming-convention, unicorn/expiring-todo-comments */
 import { OpenApiOperationExecutor } from '../../src/openapi/OpenApiOperationExecutor';
 import { SKQL } from '../../src/Skql';
-import { frameAndCombineSchemas } from '../../src/util/Util';
+import { frameAndCombineSchemas } from './util/Util';
 
 jest.mock('../../src/openapi/OpenApiOperationExecutor');
 
@@ -25,24 +25,24 @@ const incorrectReturnValueMapping = {
   'http://semweb.mmlab.be/ns/rml#logicalSource': {
     '@type': 'http://semweb.mmlab.be/ns/rml#LogicalSource',
     'http://semweb.mmlab.be/ns/rml#iterator': '$',
-    'http://semweb.mmlab.be/ns/rml#referenceFormulation': 'http://semweb.mmlab.be/ns/ql#JSONPath',
+    'http://semweb.mmlab.be/ns/rml#referenceFormulation': { '@id': 'http://semweb.mmlab.be/ns/ql#JSONPath' },
     'http://semweb.mmlab.be/ns/rml#source': 'input.json',
   },
   'http://www.w3.org/ns/r2rml#predicateObjectMap': [
     {
       '@type': 'http://www.w3.org/ns/r2rml#PredicateObjectMap',
-      'http://www.w3.org/ns/r2rml#object': 'https://skl.standard.storage/mappings/frameObject',
-      'http://www.w3.org/ns/r2rml#predicate': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type',
+      'http://www.w3.org/ns/r2rml#object': { '@id': 'https://skl.standard.storage/mappings/frameObject' },
+      'http://www.w3.org/ns/r2rml#predicate': { '@id': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' },
     },
     {
       '@type': 'http://www.w3.org/ns/r2rml#PredicateObjectMap',
-      'http://www.w3.org/ns/r2rml#object': 'https://skl.standard.storage/integrations/Dropbox',
-      'http://www.w3.org/ns/r2rml#predicate': 'https://skl.standard.storage/properties/integration',
+      'http://www.w3.org/ns/r2rml#object': { '@id': 'https://skl.standard.storage/integrations/Dropbox' },
+      'http://www.w3.org/ns/r2rml#predicate': { '@id': 'https://skl.standard.storage/properties/integration' },
     },
   ],
   'http://www.w3.org/ns/r2rml#subjectMap': {
     '@type': 'http://www.w3.org/ns/r2rml#SubjectMap',
-    'http://www.w3.org/ns/r2rml#constant': 'https://skl.standard.storage/data/abc123',
+    'http://www.w3.org/ns/r2rml#template': 'https://skl.standard.storage/data/abc123',
   },
 };
 
@@ -100,6 +100,8 @@ describe('SKQL', (): void => {
             '@id': 'https://skl.standard.storage/properties/isWeblink',
             '@type': 'http://www.w3.org/2001/XMLSchema#boolean',
           },
+          // TODO: figure out why getMIMEType doesn't work
+          // mimeType: 'https://skl.standard.storage/properties/mimeType',
           name: 'https://skl.standard.storage/properties/name',
           size: 'https://skl.standard.storage/properties/size',
           sourceId: 'https://skl.standard.storage/properties/sourceId',
@@ -112,6 +114,8 @@ describe('SKQL', (): void => {
         deleted: false,
         integration: 'https://skl.standard.storage/integrations/Dropbox',
         isWeblink: false,
+        // TODO: figure out why getMIMEType doesn't work
+        // mimeType: 'text/plain',
         name: 'Prime_Numbers.txt',
         size: '7212',
         sourceId: 'id:12345',

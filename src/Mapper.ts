@@ -5,7 +5,7 @@ import * as jsonld from 'jsonld';
 import { stringToBoolean, stringToInteger } from './util/Util';
 import { SKL, RDF, XSD } from './util/Vocabularies';
 
-const rmlmapperPath = path.join(__dirname, '/../lib/rmlmapper-5.0.0-r362-all.jar');
+const rmlmapperPath = path.join(__dirname, '/../lib/rmlmapper-6.0.0-r363-all.jar');
 const tempFolderPath = './tmp';
 
 export class Mapper {
