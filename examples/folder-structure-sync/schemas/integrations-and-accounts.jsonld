@@ -39,7 +39,7 @@
     {
       "@id": "https://skl.standard.storage/data/DropboxAccount1OauthTokens",
       "@type": "https://skl.standard.storage/nouns/OauthToken",
-      "https://skl.standard.storage/properties/accessToken": "sl.BLDN22p-0tdVomuK-esQ6fQmUytBXAZl3NxNw2HM1Z4aOIrSKLpdlZYEeLMtKoSse1O8vyHVu_001ijhII4iXxomiHw3_ii6AEDKUzBFpeI7VJZfKg6kf96Gx8-xP_QL3uqnptxsKhxO",
+      "https://skl.standard.storage/properties/accessToken": "YOUR_KEY_HERE",
       "https://skl.standard.storage/properties/account": "https://skl.standard.storage/data/DropboxAccount1"
     },
     {
