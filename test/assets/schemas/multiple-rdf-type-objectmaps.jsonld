@@ -62,7 +62,7 @@
       ],
       "rr:subjectMap": {
         "@type": "rr:SubjectMap",
-        "rr:constant": "https://example.com/mapping/subject"
+        "rr:template": "https://example.com/mapping/subject"
       }
     }
   ]
