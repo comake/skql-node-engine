@@ -1,6 +1,6 @@
 {
 	"name": "@comake/skql-node-engine",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Standard Knowledge Query Language Node Engine",
 	"keywords": [
 		"skl",
